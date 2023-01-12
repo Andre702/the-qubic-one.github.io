@@ -32,8 +32,52 @@
 			</a>
 		</div>
 		<div class="main">
-			<h1>Theoretical Part</h1>
-			<h1>Practical Part</h1>
+			<h1>1. Teoretical Part</h1>
+
+			<h2>1.1. TCP & UDP</h2>
+			
+			<h3><b>TCP (Transmission Control Protocol)</b></h3>
+			<p>A protocol used for reliable transmission of data. It assures that entirety of the message is delivered and that two sides of the connection are aware of it. It manages that i.e. by assigning numbers to individual packets (so they can be read in the correct order) or establishing connection via handshake.</p>
+			<p>TCP protocol parameters:</p>
+				<p><b>bind (Bind Address)</b> - IP address of the host bound to the message (sender)</p>
+				<p><b>connecttimeout (Connection timeout)</b> - Allowed time to wait until connection is available</p>
+				<p><b>dropworking (Drop working connections)</b> - specifies that a connection can be disconnected due to an idle timeout or a ping failure</p>
+				<p><b>idletimeout</b> - time allowed to wait in the idle state (in milliseconds)</p>
+				<p><b>pingfrequency (Ping frequency interval)</b> - frequency in which ping messages are sent to check that the applications are still active</p>
+				<p><b>port</b> - specifies the TCP/IP port number on which the protocol handler listens for incoming client requests</p>
+			<br/>
+			<p>TCP connection:</p>
+				<p>three way handshake - a technique used by TCP to increase reliability of the connection.</p>
+				<p>connection establishment - </p>
+				<p>connection release - </p>
+			FAFP
+
+			<br/>
+			<h3><b>UDP (User Datagram Protocol)</b></h3>
+			<p>A faster, less reliable cousin of TCP. It's used in situations where data has to be sent on the fly, but pieces of it can be lost, i.e. internet calls, video streaming and multiplayer games. UDP is less complicated, because it lacks many techniques used in TCP and doesn't require proper communication set-up.</p>
+			<p>UDP protocol parameters:</p>
+				<p></p>
+			
+			<p>ports: TCP works on 
+			
+			<br/>
+			<h1>2. Practical Part</h1>
+			
+			<h2>2.1.1. Identifying ports used for data transmission on google.com</h2>
+			<p>Enter www.google.com webpage using preferred browser. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection (close the browser) and check local port status.</p>
+			<img src="">
+
+			<h2>2.1.2. Identifying ports used in FTP</h2>
+			<p>Copy the file from your local host to studife.it.p.lodz.pl server using ftp protocol. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.</p>
+			<img src="">
+
+			<h2>2.1.3. Identifying ports used in SCP and SFTP</h2>
+			<p>Copy the file from your local host to studife.it.p.lodz.pl server using scp or sftp protocol. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.</p>
+			<img src="">
+
+			<h2>2.1.4. Identifying ports used in DNS</h2>
+			<p>Use Wireshark to check which protocol and port is used in transport layer by DNS protocol.</p>
+			<img src="">
 		</div>
 	</div>
 
