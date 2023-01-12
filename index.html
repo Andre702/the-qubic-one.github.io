@@ -59,23 +59,37 @@
 			<p>ports: TCP works on 
 			
 			<br/>
-			<h1>2. Practical Part</h1>
-			
-			<h2>2.1.1. Identifying ports used for data transmission on google.com</h2>
-			<p>Enter www.google.com webpage using preferred browser. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection (close the browser) and check local port status.</p>
-			<img src="">
+			<h1>2 Practical Part</h1> <br>
+            <h2>(2.1.1) Enter www.google.com webpage using preferred browser. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection (close the browser) and check local port status.</h2>
+            <p>We use Wireshark first to catch packets during connection with google</p>
+            <img src="2.1.1.png"/><br>
+            <p>We can see the source and destination ports with TCP packets (80 and 52325 / 52322)</p>
+            <p>Next we use netstat command with a filter for faster search (as we already know the ip and ports of google.com)</p>
+            <img src="2.1.2.png"/><br>
 
-			<h2>2.1.2. Identifying ports used in FTP</h2>
-			<p>Copy the file from your local host to studife.it.p.lodz.pl server using ftp protocol. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.</p>
-			<img src="">
+            <h2>(2.1.2) Copy the file from your local host to studife.it.p.lodz.pl server using ftp protocol. Use netstat and wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.</h2>
+            <p>After sending a file (Test_File_to_send_2.txt) we can see the FTP packets on wireshark</p>
+            <img src="2.2.1.png"/><br>
+            <p>We can see the ports listed in the Transmission Control Protocol details</p>
+            <p>Search in Netstat with proper ip filter returns following results:</p>
+            <img src="2.2.2.png"/><br>
+            <p>After we interupt the connection with FTP we can see that the state of connection changes to "Time_Wait" and in wireshark packets with FIN flag are sent.</p>
+            <img src="2.2.3.png"/><br>
 
-			<h2>2.1.3. Identifying ports used in SCP and SFTP</h2>
-			<p>Copy the file from your local host to studife.it.p.lodz.pl server using scp or sftp protocol. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.</p>
-			<img src="">
-
-			<h2>2.1.4. Identifying ports used in DNS</h2>
-			<p>Use Wireshark to check which protocol and port is used in transport layer by DNS protocol.</p>
-			<img src="">
+            <h2>(2.1.3) Copy the file from your local host to studife.it.p.lodz.pl server using scp or sftp protocol. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.</h2>
+            <p>After sending a file (Test_File_to_send.txt) we registered following TCP packets in wireshark</p>
+            <img src="2.3.1.png"/><br>
+            <p>Ports are visible here the same way as before.</p>
+            <p>By using netstat command we can see that this connection has a status Established</p>
+            <img src="2.3.2.png"/><br>
+            <p>After closing the connection we can see the same way as before that FIN flaged packets are sent to the server and after Acknowledgements the connection is closed and it's status changes to "Time_Wait"</p>
+            <img src="2.3.3.png"/><br>
+            <img src="2.3.4.png"/><br>
+            
+            <h2>(2.1.4) Use Wireshark to check which protocol and port is used in transport layer by DNS protocol.</h2>
+            <p>After searching any internet site (in this case: Netflix.com) we send packets to DNS server which are being captured in wireshark as shown below</p>
+            <img src="2.4.1.png"/><br>
+            <p>We can see that the User Datagram Protocol is being used along with port 53</p>
 		</div>
 	</div>
 
