@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+* {
+	box-sizing: border-box;
+	font-family: 'Roboto';
+	font-weight: 500;
+}
+
+body {
+	font-family: Arial;
+	margin: 0;
+}
+
+p {
+	font-family: 'Open Sans';
+	font-style: normal;
+	margin-left: 20px;
+	font-weight: 400;
+}
+
+a {
+	text-decoration: none;
+}
+
+.header {
+	padding: 50px;
+	text-align: center;
+	color: white;
+	font-size: 24px;
+	background: #292e32;
+	background-image: url('bg.png');
+	background-attachment: fixed;
+	background-size: cover;
+	}
+
+.header h1 {
+	font-size: 36px;
+	font-family: Roboto;
+}
+
+.divider {
+	width: auto;
+	padding: 20px;
+	background-color: #292e32;
+}
+
+.footer {
+	display: block;
+	padding: 50px;
+	background-color: #292e32;
+	color: white;
+	font-align: center;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.short_cuts {
+	flex: 20%;
+	background-color: #c1c7cc;
+	padding: 20px;
+}
+
+.table_entry {
+	display: flex;
+	flex-grow: 1;
+	background-color: #292e32;
+	margin-top: 8px;
+}
+.table_entry > div {
+	float: left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px 20px;
+}
+.table_entry:hover {
+	background-color: #c1c7cc;
+}
+.table_entry:hover > div {
+	color: black;
+}
+
+.main {
+	flex: 80%;
+	background-color: white;
+	padding: 20px;
+}
+
+img {
+	box-shadow: 0px 0px 17px #606060;
+	border-radius: 10px;
+	max-width: 1300px;
+}
