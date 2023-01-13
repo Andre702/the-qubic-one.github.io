@@ -37,7 +37,8 @@
 			<h2>1.1. TCP & UDP</h2>
 			
 			<h3><b>TCP (Transmission Control Protocol)</b></h3>
-			<p>A protocol used for reliable transmission of data. It assures that entirety of the message is delivered and that two sides of the connection are aware of it. It manages that i.e. by assigning numbers to individual packets (so they can be read in the correct order) or establishing connection via handshake.</p>
+			<p>A protocol used for reliable transmission of data. It assures that entirety of the message is delivered and that two sides of the connection are aware of it.
+				It manages that i.e. by assigning numbers to individual packets (so they can be read in the correct order) or establishing connection via handshake.</p>
 			<p>TCP protocol parameters:</p>
 				<p><b>bind (Bind Address)</b> - IP address of the host bound to the message (sender)</p>
 				<p><b>connecttimeout (Connection timeout)</b> - Allowed time to wait until connection is available</p>
@@ -47,16 +48,24 @@
 				<p><b>port</b> - specifies the TCP/IP port number on which the protocol handler listens for incoming client requests</p>
 			<br/>
 			<p>TCP connection:</p>
-				<p>three way handshake - a technique used by TCP to increase reliability of the connection.</p>
-				<p>connection establishment - </p>
-				<p>connection release - </p>
+				<p><b>three way handshake (also known as SYN-SYN-ACK)</b> - a technique used in TCP to establish communication between two hosts.
+					It consists of three messages, in which both of the hosts send out SYN (synchronisation) messages. Both SYNs have to be acknowledged by the other host by sending an ACK message.</p>
+				<p><b>connection establishment</b> - a process which is completed by TCP before any substantial data is sent to provide a reliable connection and ensure that both hosts are aware of it.
+					In practice it consists of a three way handshake.</p>
+				<p><b>connection release</b> - a process for terminating the communication via TCP. In a graceful release both the hosts should send a FIN message, which should be acknowledged by the other party via ACK.
+				In an abrupt termination the disconnecting host sends an RST segment instead.</p>
 			<br/>
 			<h3><b>UDP (User Datagram Protocol)</b></h3>
-			<p>A faster, less reliable cousin of TCP. It's used in situations where data has to be sent on the fly, but pieces of it can be lost, i.e. internet calls, video streaming and multiplayer games. UDP is less complicated, because it lacks many techniques used in TCP and doesn't require proper communication set-up.</p>
+			<p>A faster, less reliable cousin of TCP. It's used in situations where data has to be sent on the fly, but pieces of it can be lost, i.e. internet calls,
+				video streaming and multiplayer games. UDP is less complicated, because it lacks many techniques used in TCP and doesn't require proper communication set-up.</p>
 			<p>UDP protocol parameters:</p>
-				<p></p>
-			
-			<p>ports: TCP works on 
+			<p><b>Source port number</b> - the sender's port (not required, can be 0).</p>
+			<p><b>Destination port number</b> - receiver's port.</p>
+			<p><b>Length</b> - length in bytes of the UDP header and UDP data (min 8 bytes, max 65,507 bytes).</p>
+			<p><b>Checksum</b> - used for error-checking of the header and data (optional in IPv4, mandatory in IPv6).</p>
+			<br/>
+			<h3>ports</h3>
+			<p>both TCP and UDP work on port 53. However, no collision happens as the type of Protocol is determined from the message itself. This way, UDP and TCP can simultaneously exist on the same socket.</p>
 			
 			<br/>
 			<h1>2 Practical Part</h1> <br>
