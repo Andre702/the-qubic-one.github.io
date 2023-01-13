@@ -64,8 +64,13 @@
 			<p><b>Length</b> - length in bytes of the UDP header and UDP data (min 8 bytes, max 65,507 bytes).</p>
 			<p><b>Checksum</b> - used for error-checking of the header and data (optional in IPv4, mandatory in IPv6).</p>
 			<br/>
-			<h3>ports</h3>
-			<p>both TCP and UDP work on port 53. However, no collision happens as the type of Protocol is determined from the message itself. This way, UDP and TCP can simultaneously exist on the same socket.</p>
+			<h3>Ports</h3>
+			<p>Ports are logical connections on a given host that allow for a division of internet trafic into concrete services or software. Each port has a port number (16-bit unsigned intiger), which is unique for every service.</p>
+			<p>some example ports include:
+			<p>20 & 21 - FTP</p>
+			<p>22 - SSH</p>
+			<p>25 - SMTP</p>
+			<p>80 - HTTP</p>
 			
 			<br/>
 			<h1>2 Practical Part</h1> <br>
