@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>IT NT Assignment no.4 - Network and Transport Layers</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="header">
+		<h1>Assignment 4</h1>
+		<p>Network and Transport Layers</p>
+	</div>
+
+	<div class="row">
+		<div class="short_cuts">
+			<h2>Jump to:</h2>
+			<a class="table_entry" href="http://studife.it.p.lodz.pl/~ife22_05/">
+				<div>Main Page</div>
+			</a>
+			<a class="table_entry" href="http://studife.it.p.lodz.pl/~ife22_05/task1/">
+				<div>Assignment 1</div>
+			</a>
+			<a class="table_entry" href="http://studife.it.p.lodz.pl/~ife22_05/task2/">
+				<div>Assignment 2</div>
+			</a>
+			<a class="table_entry" href="http://studife.it.p.lodz.pl/~ife22_05/task3/">
+				<div>Assignment 3</div>
+			</a>
+			<a class="table_entry" href="https://pharosss.github.io/">
+				<div>Assignment 4</div>
+			</a>
+		</div>
+		<div class="main">
+			<h1>1. Teoretical Part</h1>
+
+			<h2>1.1. TCP & UDP</h2>
+			
+			<h3><b>TCP (Transmission Control Protocol)</b></h3>
+			<p>A protocol used for reliable transmission of data. It assures that entirety of the message is delivered and that two sides of the connection are aware of it.
+				It manages that i.e. by assigning numbers to individual packets (so they can be read in the correct order) or establishing connection via handshake.</p>
+			<p>TCP protocol parameters:</p>
+				<p><b>bind (Bind Address)</b> - IP address of the host bound to the message (sender)</p>
+				<p><b>connecttimeout (Connection timeout)</b> - Allowed time to wait until connection is available</p>
+				<p><b>dropworking (Drop working connections)</b> - specifies that a connection can be disconnected due to an idle timeout or a ping failure</p>
+				<p><b>idletimeout</b> - time allowed to wait in the idle state (in milliseconds)</p>
+				<p><b>pingfrequency (Ping frequency interval)</b> - frequency in which ping messages are sent to check that the applications are still active</p>
+				<p><b>port</b> - specifies the TCP/IP port number on which the protocol handler listens for incoming client requests</p>
+			<br/>
+			<p>TCP connection:</p>
+				<p><b>three way handshake (also known as SYN-SYN-ACK)</b> - a technique used in TCP to establish communication between two hosts.
+					It consists of three messages, in which both of the hosts send out SYN (synchronisation) messages. Both SYNs have to be acknowledged by the other host by sending an ACK message.</p>
+				<p><b>connection establishment</b> - a process which is completed by TCP before any substantial data is sent to provide a reliable connection and ensure that both hosts are aware of it.
+					In practice it consists of a three way handshake.</p>
+				<p><b>connection release</b> - a process for terminating the communication via TCP. In a graceful release both the hosts should send a FIN message, which should be acknowledged by the other party via ACK.
+				In an abrupt termination the disconnecting host sends an RST segment instead.</p>
+			<br/>
+			<h3><b>UDP (User Datagram Protocol)</b></h3>
+			<p>A faster, less reliable cousin of TCP. It's used in situations where data has to be sent on the fly, but pieces of it can be lost, i.e. internet calls,
+				video streaming and multiplayer games. UDP is less complicated, because it lacks many techniques used in TCP and doesn't require proper communication set-up.</p>
+			<p>UDP protocol parameters:</p>
+			<p><b>Source port number</b> - the sender's port (not required, can be 0).</p>
+			<p><b>Destination port number</b> - receiver's port.</p>
+			<p><b>Length</b> - length in bytes of the UDP header and UDP data (min 8 bytes, max 65,507 bytes).</p>
+			<p><b>Checksum</b> - used for error-checking of the header and data (optional in IPv4, mandatory in IPv6).</p>
+			<br/>
+			<h3>Ports</h3>
+			<p>Ports are logical connections on a given host that allow for a division of internet trafic into concrete services or software. Each port has a port number (16-bit unsigned intiger), which is unique for every service.</p>
+			<p>some example ports include:
+			<p>20 & 21 - FTP</p>
+			<p>22 - SSH</p>
+			<p>25 - SMTP</p>
+			<p>80 - HTTP</p>
+			
+			<br/>
+			<h1>2 Practical Part</h1> <br>
+            <h2>(2.1.1) Enter www.google.com webpage using preferred browser. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection (close the browser) and check local port status.</h2>
+            <p>We use Wireshark first to catch packets during connection with google</p>
+            <img src="2.1.1.png"/><br>
+            <p>We can see the source and destination ports with TCP packets (80 and 52325 / 52322)</p>
+            <p>Next we use netstat command with a filter for faster search (as we already know the ip and ports of google.com)</p>
+            <img src="2.1.2.png"/><br>
+
+            <h2>(2.1.2) Copy the file from your local host to studife.it.p.lodz.pl server using ftp protocol. Use netstat and wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.</h2>
+            <p>After sending a file (Test_File_to_send_2.txt) we can see the FTP packets on wireshark</p>
+            <img src="2.2.1.png"/><br>
+            <p>We can see the ports listed in the Transmission Control Protocol details</p>
+            <p>Search in Netstat with proper ip filter returns following results:</p>
+            <img src="2.2.2.png"/><br>
+            <p>After we interupt the connection with FTP we can see that the state of connection changes to "Time_Wait" and in wireshark packets with FIN flag are sent.</p>
+            <img src="2.2.3.png"/><br>
+
+            <h2>(2.1.3) Copy the file from your local host to studife.it.p.lodz.pl server using scp or sftp protocol. Use netstat and Wireshark to identify ports which are used for data transmission (local and remote port numbers). Finish the connection and check local port status.</h2>
+            <p>After sending a file (Test_File_to_send.txt) we registered following TCP packets in wireshark</p>
+            <img src="2.3.1.png"/><br>
+            <p>Ports are visible here the same way as before.</p>
+            <p>By using netstat command we can see that this connection has a status Established</p>
+            <img src="2.3.2.png"/><br>
+            <p>After closing the connection we can see the same way as before that FIN flaged packets are sent to the server and after Acknowledgements the connection is closed and it's status changes to "Time_Wait"</p>
+            <img src="2.3.3.png"/><br>
+            <img src="2.3.4.png"/><br>
+            
+            <h2>(2.1.4) Use Wireshark to check which protocol and port is used in transport layer by DNS protocol.</h2>
+            <p>After searching any internet site (in this case: Netflix.com) we send packets to DNS server which are being captured in wireshark as shown below</p>
+            <img src="2.4.1.png"/><br>
+            <p>We can see that the User Datagram Protocol is being used along with port 53</p>
+		</div>
+	</div>
+
+	<div class="footer">
+		(C) (Not) Copyright 2022 - Mateusz Kubiak 242221 & Filip Andrzejewski 242207
+	</div>
+
+</body>
+
+</html>
