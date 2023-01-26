@@ -37,6 +37,93 @@
 		<div class="main">
 			<h1>1. Teoretical Part</h1>
 
+			<h2>1.2. Mail System</h2>
+
+			<h3>1.2.1. Protocols POP3, IMAP, SMTP, client server communication, basic commands</h3>
+
+			<p><b>POP3 (Post Office Protocol version 3)</b> - a protocol used for retrieving email messages from a mail server.
+			It allows a client to download messages from a server and store them locally.</p>
+
+			<p><b>IMAP (Internet Message Access Protocol)</b> - a protocol used for retrieving email messages from a mail server.
+			Unlike POP3, IMAP allows the client to access and manipulate messages on the server without downloading them.</p>
+
+			<p><b>SMTP (Simple Mail Transfer Protocol)</b> - a protocol used for sending email messages.
+			It allows a client to transmit a message to a server, which then forwards the message to the intended recipient(s).
+			SMTP is the standard protocol used for sending email on the internet.</p>
+
+			<br>
+			<b>client-server communication</b>
+			
+			<p>In a client-server mail system, user's computer runs the email client and communicates with the email server to send and receive messages.
+				When a user wants to check their email, the client sends a request to the server using the POP3 or IMAP protocol.</p>
+
+			<p>To send an email, the client sends the message to the server using the SMTP protocol.
+				The server then forwards the message to the recipient's email server.</p>
+
+			<!-- basic commands -->
+			<br>
+			<b>The most essential commands for interacting with a mail server:</b>
+
+    		<p><b>POP3</b>: USER (sends username), PASS (sends password), RETR (retrieves a message), DELE (deletes a message)</p>
+    		<p><b>IMAP</b>: LOGIN (sends username and password), SELECT (selects a mailbox), FETCH (retrieves info about messages), STORE (modifies flags)</p>
+    		<p><b>SMTP</b>: MAIL FROM (specifies sender), RCPT TO (specifies recipient), DATA (sends the message body)</p>
+
+			<p>These commands are used for authenticating,
+				retrieving and deleting messages from mail server (POP3 and IMAP),
+				and sending messages (SMTP).</p>
+
+			<h3>1.2.2. NNTP protocol</h3>
+			<p><b>NNTP (Network News Transfer Protocol)</b> - a protocol used for distributing and retrieving Usenet articles.
+				Usenet is a global network of servers that store and distribute newsgroup articles.
+				NNTP is used to connect to a Usenet server, retrieve articles from newsgroups, and post new articles to newsgroups.</p>
+			
+			<h3>1.2.3. E-mail mailbox, parameters, aliases, address</h3>
+			<p><b>E-mail mailbox</b> - a storage location on a mail server where incoming and outgoing email messages are stored.
+				Each mailbox is associated with a unique email address,
+				and can be accessed by the owner of the mailbox using a mail client.</p>
+
+			<b>Parameters:</b>
+			
+			<ul>
+				<li>To: recipient's address</li>
+				<li>From: sender's address</li>
+				<li>Subject: brief summary</li>
+				<li>CC: Carbon Copy - Additional recipients</li>
+				<li>BCC: Blind Carbon Copy - hidden carbon copy</li>
+				<li>Reply-To: address for sending replies</li>
+				<li>Date: date and time</li>
+				<li>Message-ID: A unique identifier for the email</li>
+				<li>In-Reply-To: The Message-ID of the email that this email is in reply to</li>
+			</ul>
+
+			<h3>1.2.4. E-mail structure: header, separator</h3>
+			<p>An e-mail consists of two parts: header and body. The header holds information related to to the message itself,
+				while body holds the contents of the message.</p>
+			<p>separator is a string of characters (typically a blank line, but can depend on the email system)
+				used to separate the different parts of an email message, i.e. header and body.</p>
+			
+			<h3>1.2.5. Attachements, e-mail coding, MIME</h3>
+			<p>Attachments are files that are sent along with email messages.
+				When a file is attached to an email, it is encoded into a format that can be sent as part of the email message.
+				The most common encoding format is Multipurpose Internet Mail Extensions (MIME). The attachments are usually a part of the body.</p>
+			<p>Additionaly, e-mails can include HTML and CSS code, which allows for creating visually appealing and professional-looking e-mails.
+				It is worth noting that not all email clients support the same level of HTML and CSS.</p>
+
+			<h3>1.2.6. Mailing lists, e-mail gate</h3>
+			<p><b>Mailing list</b> - a collection of email addresses that are used to send messages to multiple recipients at once.
+				Mailing lists can be used for a variety of purposes, such as sending newsletters, announcements, or discussion forums.
+				They can be moderated, this is done to avoid spam or unwanted messages.</p>
+
+			<p><b>Email Gateway</b> - a system that acts as a bridge between different email systems and networks.
+				It is used to process and filter incoming and outgoing email messages,
+				and to perform various functions such as spam filtering, virus scanning, and message encryption.</p>
+
+			<h3>1.2.7. E-mail security, ssl, tls, PGP, signature</h3>
+			<p></p>
+
+			<h3>1.2.8. Spam, blacklists, graylists, spam filtering</h3>
+			<p></p>
+
 			<h1>2. Practical Part</h1>
 		</div>
 	</div>
